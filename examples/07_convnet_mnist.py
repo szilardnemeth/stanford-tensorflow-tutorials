@@ -207,4 +207,4 @@ class ConvNet(object):
 if __name__ == '__main__':
     model = ConvNet()
     model.build()
-    model.train(n_epochs=30)
+    model.train(n_epochs=5)
