@@ -5,15 +5,14 @@ cs20.stanford.edu
 Chip Huyen (chiphuyen@cs.stanford.edu)
 Lecture 07
 """
-
-#%%
 import os
-#os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 import time 
+
 import tensorflow as tf
+
 import utils
 
-#%%
 def conv_relu(inputs, filters, k_size, stride, padding, scope_name):
     '''
     A method that does convolution + relu on inputs
@@ -51,7 +50,6 @@ def fully_connected(inputs, out_dim, scope_name='fc'):
         out = tf.matmul(inputs, w) + b
     return out
 
-#%%
 class ConvNet(object):
     def __init__(self):
         self.lr = 0.001
@@ -205,8 +203,8 @@ class ConvNet(object):
                 step = self.train_one_epoch(sess, saver, self.train_init, writer, epoch, step)
                 self.eval_once(sess, self.test_init, writer, epoch, step)
         writer.close()
-#%%
+
 if __name__ == '__main__':
     model = ConvNet()
     model.build()
-    model.train(n_epochs=5)
+    model.train(n_epochs=30)
